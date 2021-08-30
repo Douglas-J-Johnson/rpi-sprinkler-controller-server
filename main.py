@@ -36,26 +36,12 @@ for i in range(8):
   GPIO.setup(Relay[i], GPIO.OUT)
   GPIO.output(Relay[i], GPIO.HIGH)
 
-#@get("/")
-#def index():
+@get("/relays")
+def index():
 #  global Relay1,Relay2,Relay3,Relay4,Relay5,Relay6,Relay7,Relay8
+   print("Get Relays")
 
-#  Relay1 = 1
-#  Relay2 = 1
-#  Relay3 = 1
-#  Relay4 = 1
-#  Relay5 = 1
-#  Relay6 = 1
-#  Relay7 = 1
-#  Relay8 = 1
-
-#  return static_file('index.html', './')
-
-#@route('/<filename>')
-#def server_Static(filename):
-#  return static_file(filename, root='./')
-
-@route('/relays/set', method="POST")
+@post('/relays')
 def Relay_Control():
   global Relay1,Relay2,Relay3,Relay4,Relay5,Relay6,Relay7,Relay8
 
@@ -67,14 +53,14 @@ def Relay_Control():
   Relay6 = request.POST.get('Relay6')
   Relay7 = request.POST.get('Relay7')
   Relay8 = request.POST.get('Relay8')
-#  print(Relay1)
-#  print(Relay2)
-#  print(Relay3)
-#  print(Relay4)
-#  print(Relay5)
-#  print(Relay6)
-#  print(Relay7)
-#  print(Relay8)
+  print(Relay1)
+  print(Relay2)
+  print(Relay3)
+  print(Relay4)
+  print(Relay5)
+  print(Relay6)
+  print(Relay7)
+  print(Relay8)
   GPIO.output(Relay[0], int(Relay1))
   GPIO.output(Relay[1], int(Relay2))
   GPIO.output(Relay[2], int(Relay3))
